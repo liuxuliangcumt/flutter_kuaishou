@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_kuaishou/pages/home/component/Concern.dart';
+import 'package:flutter_kuaishou/pages/home/component/HomeDrawer.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -14,7 +16,7 @@ class _HomePageState extends State<HomePage> {
       length: choices.length,
       child: new Scaffold(
         endDrawer: Text('enddrawer'),
-        drawer: Container(child: Text('drawer'), color: Colors.white,),
+        drawer: HomeDrawer(),
         appBar: new AppBar(
           centerTitle: true,
           iconTheme: IconThemeData(color: Colors.black),
@@ -25,13 +27,13 @@ class _HomePageState extends State<HomePage> {
             Padding(
               child: Icon(Icons.switch_video, color: Colors.black,),
               padding: EdgeInsets.only(right: 20.0),),
-
           ],
           title: new TabBar(
             isScrollable: true,
             unselectedLabelColor: Colors.grey,
             labelColor: Colors.black,
-            indicatorColor: Colors.white,
+            indicatorColor: Colors.yellow,
+            indicatorSize: TabBarIndicatorSize.label,
             labelStyle: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600),
             tabs: choices.map((Choice choice) {
               return new Tab(
@@ -45,10 +47,7 @@ class _HomePageState extends State<HomePage> {
 
         body: new TabBarView(
           children: choices.map((Choice choice) {
-            return new Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: new ChoiceCard(choice: choice),
-            );
+            return ConcernView();
           }).toList(),
         ),
       )

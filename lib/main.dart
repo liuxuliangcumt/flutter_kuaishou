@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_kuaishou/pages/HomePage.dart';
+import 'package:flutter_kuaishou/pages/home/HomePage.dart';
 
 void main() => runApp(new MyApp());
 
